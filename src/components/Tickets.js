@@ -26,12 +26,18 @@ function Tickets(props) {
       </div>
     </div>);
 }
-const mapStateToProps = function (state) {
-  return {
-    tickets: state.tickets
-  };
-};
-export default (Tickets);
+
 // export default connect(mapStateToProps,null)(Tickets);
 
+
+const mapStateToProps = (state) => {
+    return {
+        tickets: state.tickets
+    }
+}
+
+
+// let connector = connect(mapStateToProps);
+// let TicketsContainer = connector(Tickets);
+export default connect(mapStateToProps, null)(Tickets);
 

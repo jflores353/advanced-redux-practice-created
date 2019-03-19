@@ -1,5 +1,8 @@
 import React from "react";
 import TaskItem from "./TaskItem";
+import { connect } from 'react-redux';
+
+
 function TasksPanel(props) {
   return (  <div className="panel panel-default">
                 <div className="panel-heading">
@@ -22,4 +25,13 @@ function TasksPanel(props) {
         );
 }
 
-export default TasksPanel;
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks
+    }
+}
+
+
+// let connector = connect(mapStateToProps);
+// let TasksPanelContainer = connector(TasksPanel);
+export default connect(mapStateToProps,null)(TasksPanel);

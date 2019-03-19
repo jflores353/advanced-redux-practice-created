@@ -1,5 +1,7 @@
 import React from "react";
 import MessagePreview from "./MessagePreview";
+import { connect } from 'react-redux';
+
 
 function TopNav(props) {
   return (
@@ -66,4 +68,13 @@ function TopNav(props) {
     </ul>);
 }
 
-export default TopNav;
+const mapStateToProps = (state) => {
+    return {
+        messages : state.messages
+    }
+}
+
+
+// let connector = connect(mapStateToProps);
+// let TopNavContainer = connector(TopNav);
+export default connect(mapStateToProps,null)(TopNav);

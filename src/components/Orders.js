@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+
 
 function Orders(props) {
   return ( 
@@ -26,4 +28,15 @@ function Orders(props) {
     </div>);
 }
 
-export default Orders;
+
+const mapStateToProps = (state) => {
+    return {
+        newOrders: state.newOrders
+    }
+}
+
+
+// let connector = connect(mapStateToProps);
+// let OrdersContainer = connector(Orders);
+export default connect(mapStateToProps,null)(Orders);
+
